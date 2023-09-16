@@ -1,0 +1,52 @@
+html {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.page {
+
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    flex-direction: column;
+    height: 100vh;
+    overflow: clip;
+    margin: 0 auto;
+    max-width: 102.4rem;
+    min-width: 50rem;
+    background-color: aliceblue;
+}
+
+.container {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: darkslategray;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.items-line {
+    position: relative;
+    display: flex;
+    aspect-ratio: 1/1;
+    border-radius: 1.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    transition: transform 500ms linear;
+}
+
+.items-line img {
+    flex: 1 0 100%;
+    object-fit: cover;
+}
