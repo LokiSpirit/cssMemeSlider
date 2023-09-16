@@ -72,6 +72,13 @@ html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-right: 2rem;
     transition: all 500ms linear;
+    /* animation */
+    animation-name: appearing;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: normal;
 
     @media screen and (max-width:1024px) {
         font-size: 3rem;
@@ -80,6 +87,16 @@ html {
     @media screen and (max-width:850px) {
         font-size: 2rem;
         margin-right: 0;
+    }
+}
+
+@keyframes appearing {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
