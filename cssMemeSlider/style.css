@@ -13,21 +13,20 @@ html {
 
     display: flex;
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     flex-direction: column;
     height: 100vh;
-    overflow: clip;
-    margin: 0 auto;
+    overflow: auto;
+    margin-inline: auto;
     max-width: 102.4rem;
     min-width: 50rem;
     background-color: aliceblue;
 }
 
 .container {
-    position: relative;
     width: 60%;
-    margin: 0 auto;
-    padding: 2rem;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
     background-color: darkslategray;
 }
 
@@ -54,23 +53,28 @@ html {
 /* Interactive-line */
 .interactive-line {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: baseline;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
 
     @media screen and (max-width:900px) {
         flex-direction: column-reverse;
-        align-items: center;
-        text-align: center;
-        row-gap: 2rem;
+        justify-content: center;
+        text-align: start;
+        row-gap: 1rem;
+        margin-bottom: 2rem;
     }
+}
+
+.discription-list {
+    margin: 0 auto 0 0;
 }
 
 .discription {
     display: none;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-right: 2rem;
     transition: all 500ms linear;
     /* animation */
     animation-name: appearing;
@@ -79,15 +83,6 @@ html {
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-direction: normal;
-
-    @media screen and (max-width:1024px) {
-        font-size: 3rem;
-    }
-
-    @media screen and (max-width:850px) {
-        font-size: 2rem;
-        margin-right: 0;
-    }
 }
 
 @keyframes appearing {
@@ -108,62 +103,65 @@ html {
 
 .pagination {
     display: flex;
-    align-items: start;
-}
+    /*     justify-content: center; */
+    align-items: center;
 
-label {
-    cursor: pointer;
+    @media screen and (max-width:900px) {
+        margin-inline: auto;
+    }
 }
 
 .dot {
-    /* position: absolute; */
     opacity: 0;
     width: 0;
     height: 0;
     z-index: -1;
 }
 
-.custom {
-    display: inline-block;
-    position: relative;
+label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     width: 3rem;
     height: 3rem;
+    cursor: pointer;
 }
 
-.custom:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1.8rem;
-    height: 1.8rem;
+.custom {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background-color: chocolate;
     border: .5rem solid chocolate;
 }
 
-label:hover .custom::before {
+
+label:hover .custom {
     background-color: darksalmon;
     border: .5rem solid darksalmon;
 }
 
-#radio-1:checked~.interactive-line .pagination label .custom_1::before,
-#radio-2:checked~.interactive-line .pagination label .custom_2::before,
-#radio-3:checked~.interactive-line .pagination label .custom_3::before,
-#radio-4:checked~.interactive-line .pagination label .custom_4::before,
-#radio-5:checked~.interactive-line .pagination label .custom_5::before {
-
-    background-color: darkslategray;
-    border: .5rem solid chocolate;
+label:active,
+label:focus {
+    filter: drop-shadow(0 0 5px #dbbf33);
 }
 
-#radio-1:checked~.interactive-line .pagination label:hover .custom_1::before,
-#radio-2:checked~.interactive-line .pagination label:hover .custom_2::before,
-#radio-3:checked~.interactive-line .pagination label:hover .custom_3::before,
-#radio-4:checked~.interactive-line .pagination label:hover .custom_4::before,
-#radio-5:checked~.interactive-line .pagination label:hover .custom_5::before {
+#radio-1:checked~.interactive-line .pagination label .custom_1,
+#radio-2:checked~.interactive-line .pagination label .custom_2,
+#radio-3:checked~.interactive-line .pagination label .custom_3,
+#radio-4:checked~.interactive-line .pagination label .custom_4,
+#radio-5:checked~.interactive-line .pagination label .custom_5 {
+
+    background-color: darkslategray;
+    border: .2rem solid chocolate;
+}
+
+#radio-1:checked~.interactive-line .pagination label:hover .custom_1,
+#radio-2:checked~.interactive-line .pagination label:hover .custom_2,
+#radio-3:checked~.interactive-line .pagination label:hover .custom_3,
+#radio-4:checked~.interactive-line .pagination label:hover .custom_4,
+#radio-5:checked~.interactive-line .pagination label:hover .custom_5 {
 
     background-color: darkslategray;
     border-color: darksalmon;
