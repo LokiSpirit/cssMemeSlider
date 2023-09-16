@@ -50,3 +50,149 @@ html {
     flex: 1 0 100%;
     object-fit: cover;
 }
+
+/* Interactive-line */
+.interactive-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+
+    @media screen and (max-width:900px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        row-gap: 2rem;
+    }
+}
+
+.discription {
+    display: none;
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 2rem;
+    transition: all 500ms linear;
+
+    @media screen and (max-width:1024px) {
+        font-size: 3rem;
+    }
+
+    @media screen and (max-width:850px) {
+        font-size: 2rem;
+        margin-right: 0;
+    }
+}
+
+.discription.active {
+    display: block;
+}
+
+/*Pagination */
+
+.pagination {
+    display: flex;
+    align-items: start;
+}
+
+label {
+    cursor: pointer;
+}
+
+.dot {
+    /* position: absolute; */
+    opacity: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+.custom {
+    display: inline-block;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+}
+
+.custom:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: chocolate;
+    border: .5rem solid chocolate;
+}
+
+label:hover .custom::before {
+    background-color: darksalmon;
+    border: .5rem solid darksalmon;
+}
+
+#radio-1:checked~.interactive-line .pagination label .custom_1::before,
+#radio-2:checked~.interactive-line .pagination label .custom_2::before,
+#radio-3:checked~.interactive-line .pagination label .custom_3::before,
+#radio-4:checked~.interactive-line .pagination label .custom_4::before,
+#radio-5:checked~.interactive-line .pagination label .custom_5::before {
+
+    background-color: darkslategray;
+    border: .5rem solid chocolate;
+}
+
+#radio-1:checked~.interactive-line .pagination label:hover .custom_1::before,
+#radio-2:checked~.interactive-line .pagination label:hover .custom_2::before,
+#radio-3:checked~.interactive-line .pagination label:hover .custom_3::before,
+#radio-4:checked~.interactive-line .pagination label:hover .custom_4::before,
+#radio-5:checked~.interactive-line .pagination label:hover .custom_5::before {
+
+    background-color: darkslategray;
+    border-color: darksalmon;
+}
+
+.dot:checked+.custom::before {
+    background-color: darkslategray;
+    border-color: chocolate;
+}
+
+#radio-1:checked~.carousel .items-line {
+    transform: translateX(0%);
+}
+
+#radio-2:checked~.carousel .items-line {
+    transform: translateX(-100%);
+}
+
+#radio-3:checked~.carousel .items-line {
+    transform: translateX(-200%);
+}
+
+#radio-4:checked~.carousel .items-line {
+    transform: translateX(-300%);
+}
+
+#radio-5:checked~.carousel .items-line {
+    transform: translateX(-400%);
+}
+
+#radio-1:checked~.interactive-line .discription-list .discription.item_1 {
+    display: flex;
+}
+
+#radio-2:checked~.interactive-line .discription-list .discription.item_2 {
+    display: flex;
+}
+
+#radio-3:checked~.interactive-line .discription-list .discription.item_3 {
+    display: flex;
+}
+
+#radio-4:checked~.interactive-line .discription-list .discription.item_4 {
+    display: flex;
+}
+
+#radio-5:checked~.interactive-line .discription-list .discription.item_5 {
+    display: flex;
+}
