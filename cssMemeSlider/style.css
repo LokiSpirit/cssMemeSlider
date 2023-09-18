@@ -1,0 +1,212 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.page {
+
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    margin-inline: auto;
+    max-width: 102.4rem;
+    min-width: 50rem;
+    background-color: aliceblue;
+}
+
+.container {
+    width: 60%;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    background-color: darkslategray;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.items-line {
+    display: flex;
+    aspect-ratio: 1/1;
+    border-radius: 1.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    transition: transform 500ms linear;
+}
+
+.items-line img {
+    flex: 1 0 100%;
+    object-fit: cover;
+}
+
+/* Interactive-line */
+.interactive-line {
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    @media screen and (max-width:900px) {
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: start;
+        row-gap: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.discription-list {
+    margin: 0 auto 0 0;
+}
+
+.discription {
+    display: none;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: all 500ms linear;
+    /* animation */
+    animation-name: appearing;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+@keyframes appearing {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.discription.active {
+    display: block;
+}
+
+/*Pagination */
+
+.pagination {
+    display: flex;
+    /*     justify-content: center; */
+    align-items: center;
+
+    @media screen and (max-width:900px) {
+        margin-inline: auto;
+    }
+}
+
+.dot {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+}
+
+label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.custom {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: chocolate;
+    border: .5rem solid chocolate;
+}
+
+
+label:hover .custom {
+    background-color: darksalmon;
+    border: .5rem solid darksalmon;
+}
+
+label:active,
+label:focus {
+    filter: drop-shadow(0 0 5px #dbbf33);
+}
+
+#radio-1:checked~.interactive-line .pagination label .custom_1,
+#radio-2:checked~.interactive-line .pagination label .custom_2,
+#radio-3:checked~.interactive-line .pagination label .custom_3,
+#radio-4:checked~.interactive-line .pagination label .custom_4,
+#radio-5:checked~.interactive-line .pagination label .custom_5 {
+
+    background-color: darkslategray;
+    border: .2rem solid chocolate;
+}
+
+#radio-1:checked~.interactive-line .pagination label:hover .custom_1,
+#radio-2:checked~.interactive-line .pagination label:hover .custom_2,
+#radio-3:checked~.interactive-line .pagination label:hover .custom_3,
+#radio-4:checked~.interactive-line .pagination label:hover .custom_4,
+#radio-5:checked~.interactive-line .pagination label:hover .custom_5 {
+
+    background-color: darkslategray;
+    border-color: darksalmon;
+}
+
+.dot:checked+.custom::before {
+    background-color: darkslategray;
+    border-color: chocolate;
+}
+
+#radio-1:checked~.carousel .items-line {
+    transform: translateX(0%);
+}
+
+#radio-2:checked~.carousel .items-line {
+    transform: translateX(-100%);
+}
+
+#radio-3:checked~.carousel .items-line {
+    transform: translateX(-200%);
+}
+
+#radio-4:checked~.carousel .items-line {
+    transform: translateX(-300%);
+}
+
+#radio-5:checked~.carousel .items-line {
+    transform: translateX(-400%);
+}
+
+#radio-1:checked~.interactive-line .discription-list .discription.item_1 {
+    display: flex;
+}
+
+#radio-2:checked~.interactive-line .discription-list .discription.item_2 {
+    display: flex;
+}
+
+#radio-3:checked~.interactive-line .discription-list .discription.item_3 {
+    display: flex;
+}
+
+#radio-4:checked~.interactive-line .discription-list .discription.item_4 {
+    display: flex;
+}
+
+#radio-5:checked~.interactive-line .discription-list .discription.item_5 {
+    display: flex;
+}
